@@ -1,5 +1,8 @@
 package sample;
 
+import com.ssg.springwebmvc.prof.LectureRoom;
+import com.ssg.springwebmvc.sample.Restaurant;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import com.ssg.springwebmvc.sample.SampleService;
 import org.junit.jupiter.api.Assertions;
@@ -19,14 +22,32 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class SampleTests {
 
     // @Autowired: 이 어노테이션이 붙은 필드에 스프링 빈 객체를 주입
-    // (root-context.xml에 포함된 스프링 빈 중 필드 타입에 해당하는 것을 주입)
+    // (root-context.xml에 설정된 component-scan 범위에서 스캔한 스프링 빈 중 필드 타입이 일치하는 것을 주입)
     @Autowired
     private SampleService sampleService;    // SampleService 멤버 변수 선언
+
+    @Autowired
+    private Restaurant restaurant;
+
+    @Autowired
+    private LectureRoom lectureRoom;
 
     @Test
     @DisplayName("SampleService 빈 객체 생성 테스트")
     public void testSampleService() {
         log.info(sampleService);
         Assertions.assertNotNull(sampleService);
+    }
+
+    @Test
+    public void guestTest() {
+        log.info(restaurant);
+        Assertions.assertNotNull(restaurant);
+    }
+
+    @Test
+    public void studentTest() {
+        log.info(lectureRoom);
+        Assertions.assertNotNull(lectureRoom);
     }
 }

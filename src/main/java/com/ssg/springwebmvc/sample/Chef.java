@@ -1,4 +1,7 @@
-package com.ssg.springwebmvc.restaurant;
+package com.ssg.springwebmvc.sample;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Chef {
 }
