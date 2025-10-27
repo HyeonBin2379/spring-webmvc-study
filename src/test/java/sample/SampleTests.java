@@ -2,7 +2,6 @@ package sample;
 
 import com.ssg.springwebmvc.prof.LectureRoom;
 import com.ssg.springwebmvc.sample.Restaurant;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import com.ssg.springwebmvc.sample.SampleService;
 import org.junit.jupiter.api.Assertions;
@@ -12,6 +11,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
 
 @Log4j2
 // JUnit 버전에서 spring-test를 이용하기 위한 설정 어노테이션
@@ -32,6 +34,9 @@ public class SampleTests {
     @Autowired
     private LectureRoom lectureRoom;
 
+    @Autowired
+    private DataSource dataSource;
+
     @Test
     @DisplayName("SampleService 빈 객체 생성 테스트")
     public void testSampleService() {
@@ -49,5 +54,15 @@ public class SampleTests {
     public void studentTest() {
         log.info(lectureRoom);
         Assertions.assertNotNull(lectureRoom);
+    }
+
+    // 스프링은 필요한 객체를 빈으로 등록해두면, 스프링 컨테이너가 빈으로 등록된 객체의 생명주기를 알아서 관리(-> 제어의 역전)
+    // 따라서 사용자는 객체를 사용하기 위해, 직접 객체를 생성할 필요가 없음
+    @Test
+    public void testDataSource() throws Exception {
+        Connection connection = dataSource.getConnection();
+        log.info(dataSource);
+        Assertions.assertNotNull(connection);
+        connection.close();
     }
 }

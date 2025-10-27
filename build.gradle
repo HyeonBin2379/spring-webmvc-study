@@ -31,7 +31,6 @@ dependencies {
 
     // MySQL DB 드라이버
     implementation 'mysql:mysql-connector-java:8.0.22'
-
     // DB 커넥션풀 라이브러리
     implementation 'com.zaxxer:HikariCP:5.0.1'
 
@@ -50,6 +49,7 @@ dependencies {
     // model 계층 객체 변환용 mapper 추가
     implementation 'org.modelmapper:modelmapper:3.0.0'
 
+    // 테스트를 수행할 때 필요한 기능을 제공하는 라이브러리
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
