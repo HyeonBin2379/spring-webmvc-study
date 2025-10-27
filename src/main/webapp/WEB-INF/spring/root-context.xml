@@ -5,4 +5,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--  ApplicationContext에 SampleDAO, SampleService를 스프링 빈으로 등록  -->
+    <bean class="com.ssg.springwebmvc.sample.SampleDAO"></bean>
+    <bean class="com.ssg.springwebmvc.sample.SampleService"></bean>
+
 </beans>
