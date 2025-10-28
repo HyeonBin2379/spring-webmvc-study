@@ -1,13 +1,13 @@
 package com.ssg.springwebmvc.sample;
 
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Log4j2
+// 이 어노테이션이 붙은 클래스는 스프링 빈으로 처리 + 이 클래스가 Service 객체임을 명시
 @Service
 // 최신 스프링 문법에서는 @Autowired를 멤버 필드에 사용하는 것을 비권장 -> 생성자 주입 방식 적용
 @RequiredArgsConstructor

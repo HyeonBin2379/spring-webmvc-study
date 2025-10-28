@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 
 @Log4j2
-// JUnit 버전에서 spring-test를 이용하기 위한 설정 어노테이션
+// JUnit에서 spring-test를 이용하기 위한 설정 어노테이션
 @ExtendWith(SpringExtension.class)
 // 불러올 스프링 설정 정보를 지정
 // spring.root-context.xml 파일의 스프링 빈을 현재 클래스에서 사용
