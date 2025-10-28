@@ -1,7 +1,9 @@
 package com.ssg.springwebmvc.controller;
 
+import com.ssg.springwebmvc.dto.TodoDTO;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -37,5 +39,21 @@ public class SampleController {
     public void ex03(LocalDate dueDate) {
         log.info("ex03에서 수집한 파라미터");
         log.info("dueDate: " + dueDate);
+    }
+
+    @GetMapping("/ex04")
+    public void ex04(Model model) {
+        log.info("ex04 Model 파라미터");
+
+        // 이제는 forwarding 없이도 model 객체를 사용하여 뷰에서 원하는 메시지 출력 가능
+        model.addAttribute("message", "Hello Spring MVC");
+    }
+
+    @GetMapping("/ex04_1")
+    public void ex04_1(TodoDTO todoDTO, Model model) {
+        log.info(todoDTO);
+
+        // Model 객체를 통해 수집한 객체의 정보를 뷰에서 출력
+        model.addAttribute("todoDTO", todoDTO);
     }
 }

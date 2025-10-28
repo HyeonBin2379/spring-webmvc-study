@@ -11,7 +11,12 @@
     <title>Register</title>
 </head>
 <body>
-    Todo Register
-
+    <form action="/todo/register" method="post">
+        <div>Title : <input type="text" name="title"> </div>
+        <div>DueDate : <input type="date" name="dueDate" value="2025-10-27"> </div>
+        <div>Writer : <input type="text" name="writer"> </div>
+        <div>finished : <input type="checkbox" name="finished"> </div>
+        <div><button type="submit">Todo Register</button></div>
+    </form>
 </body>
 </html>
