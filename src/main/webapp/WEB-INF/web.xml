@@ -16,8 +16,9 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+
     <servlet>
-        <!-- DispatcherServlet 지정: 서블릿의 처리 결과를 받아 뷰를 반환할 Front-Controller 지정-->
+        <!-- DispatcherServlet을 스프링 빈으로 등록: 서블릿의 처리 결과를 받아 뷰를 반환할 Front-Controller-->
         <servlet-name>appServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
