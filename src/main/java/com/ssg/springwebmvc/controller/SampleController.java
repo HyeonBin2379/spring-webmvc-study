@@ -5,7 +5,9 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
 
@@ -55,5 +57,26 @@ public class SampleController {
 
         // Model 객체를 통해 수집한 객체의 정보를 뷰에서 출력
         model.addAttribute("todoDTO", todoDTO);
+    }
+
+    // 리다이렉트 시 함께 전송할 파라미터를 지정
+    @GetMapping("/ex05")
+    public String ex05(RedirectAttributes redirectAttributes) {
+        // 리다이렉트된 경로의 쿼리스트링에서 사용할 파라미터를 전달(새로고침해도 쿼리스트링 유지)
+        redirectAttributes.addAttribute("name", "ABCDEFGHIJKLMNO");
+
+//      // 리다이렉트된 경로에서 일회용으로 사용할 파라미터를 전송(새로고침 시 삭제)
+        redirectAttributes.addFlashAttribute("result", "success");
+        return "redirect:/ex06";
+    }
+
+    @GetMapping("/ex06")
+    public void ex06() {
+    }
+
+    @GetMapping("/ex07")
+    public void ex07(int m1, int m2) {
+        log.info("m1: " + m1);
+        log.info("m2: " + m2);
     }
 }
